@@ -135,3 +135,4 @@ C:\Users\MrFre\TrackingScript\Backend\obj\Debug\net8.0.0\refint\TrackingScript.d
 C:\Users\MrFre\TrackingScript\Backend\obj\Debug\net8.0.0\TrackingScript.pdb
 C:\Users\MrFre\TrackingScript\Backend\obj\Debug\net8.0.0\TrackingScript.genruntimeconfig.cache
 C:\Users\MrFre\TrackingScript\Backend\obj\Debug\net8.0.0\ref\TrackingScript.dll
+C:\Users\MrFre\TrackingScript\Backend\obj\Debug\net8.0.0\TrackingScript.sourcelink.json

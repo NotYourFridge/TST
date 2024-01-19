@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Tracking Page</title>
+</head>
+<body>
+
+  <button>Button 1</button>
+  <button>Button 2</button>
+  <button>Button 3</button>
+
+  <script>
+    function trackInteraction(type, page) {
+      fetch(`http://localhost:5141/api/tracking/${type}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          Page: page,
+        }),
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => console.log(`Tracking ${type} data sent successfully:`, data))
+        .catch(error => console.error(`Error sending tracking ${type} data:`, error));
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const buttons = document.querySelectorAll('button');
+
+      buttons.forEach(button => {
+        button.addEventListener('click', function () {
+          trackInteraction('click', window.location.pathname);
+        });
+
+        button.addEventListener('mouseenter', function () {
+          trackInteraction('hover', window.location.pathname);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
